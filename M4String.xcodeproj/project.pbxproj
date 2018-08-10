@@ -18,6 +18,7 @@
 		99CA5841211D6CA800F80123 /* NSMutableAttributedString+M4Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA583C211D6CA800F80123 /* NSMutableAttributedString+M4Tag.m */; };
 		99CA5842211D6CA800F80123 /* NSMutableAttributedString+M4Linespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA583D211D6CA800F80123 /* NSMutableAttributedString+M4Linespace.m */; };
 		99CA5843211D6CA800F80123 /* NSMutableAttributedString+M2Highlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA583E211D6CA800F80123 /* NSMutableAttributedString+M2Highlight.m */; };
+		99CA5846211D73D500F80123 /* NSAttributedString+M2Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA5845211D73D500F80123 /* NSAttributedString+M2Size.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		99CA583E211D6CA800F80123 /* NSMutableAttributedString+M2Highlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+M2Highlight.m"; sourceTree = "<group>"; };
 		99CA583F211D6CA800F80123 /* NSMutableAttributedString+M4Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+M4Tag.h"; sourceTree = "<group>"; };
 		99CA5840211D6CA800F80123 /* NSMutableAttributedString+M4Linespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+M4Linespace.h"; sourceTree = "<group>"; };
+		99CA5844211D73D500F80123 /* NSAttributedString+M2Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+M2Size.h"; sourceTree = "<group>"; };
+		99CA5845211D73D500F80123 /* NSAttributedString+M2Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+M2Size.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				99CA583D211D6CA800F80123 /* NSMutableAttributedString+M4Linespace.m */,
 				99CA583F211D6CA800F80123 /* NSMutableAttributedString+M4Tag.h */,
 				99CA583C211D6CA800F80123 /* NSMutableAttributedString+M4Tag.m */,
+				99CA5844211D73D500F80123 /* NSAttributedString+M2Size.h */,
+				99CA5845211D73D500F80123 /* NSAttributedString+M2Size.m */,
 				99CA583B211D6CA800F80123 /* NSMutableAttributedString+M2Highlight.h */,
 				99CA583E211D6CA800F80123 /* NSMutableAttributedString+M2Highlight.m */,
 			);
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99CA580C211D6C7700F80123 /* ViewController.m in Sources */,
+				99CA5846211D73D500F80123 /* NSAttributedString+M2Size.m in Sources */,
 				99CA5817211D6C7700F80123 /* main.m in Sources */,
 				99CA5841211D6CA800F80123 /* NSMutableAttributedString+M4Tag.m in Sources */,
 				99CA5842211D6CA800F80123 /* NSMutableAttributedString+M4Linespace.m in Sources */,

@@ -10,13 +10,17 @@
 #import <UIKit/UIKit.h>
 
 @interface NSMutableAttributedString (M4Tag)
-- (void)m4_insertTag:(NSString *)tag
-           tagHeight:(CGFloat)tagHeight
-             tagFont:(UIFont *)tagFont
-  tagBackgroundColor:(UIColor *)tagBackgroundColor
-       tagTitleColor:(UIColor *)tagTitleColor
-           yModifier:(CGFloat)yModifier
-            xPadding:(CGFloat)xPadding;
-- (void)m4_sn_insertTag:(NSString *)tag
-              yModifier:(CGFloat)yModifier;
++ (NSMutableAttributedString *)m4_attributedStringWithString:(NSString *)string
+                                                         tag:(NSString *)tag
+                                            tagHeight:(CGFloat)tagHeight
+                                              tagFont:(UIFont *)tagFont
+                                   tagBackgroundColor:(UIColor *)tagBackgroundColor
+                                        tagTitleColor:(UIColor *)tagTitleColor
+                                          tailPadding:(CGFloat)tailPadding
+                                            yModifier:(CGFloat)yModifier;//tag会和文字底对齐，要手动修正到中央对齐
+
+// 项目中共通的可修改下使用
++ (NSMutableAttributedString *)m7_custom_attributedStringWithString:(NSString *)string
+                                                                 tag:(NSString *)tag
+                                         yModifier:(CGFloat)yModifier;
 @end

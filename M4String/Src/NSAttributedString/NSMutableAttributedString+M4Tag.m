@@ -9,14 +9,41 @@
 #import "NSMutableAttributedString+M4Tag.h"
 
 @implementation NSMutableAttributedString (M4Tag)
-- (void)m4_insertTag:(NSString *)tag
-           tagHeight:(CGFloat)tagHeight
-             tagFont:(UIFont *)tagFont
-  tagBackgroundColor:(UIColor *)tagBackgroundColor
-       tagTitleColor:(UIColor *)tagTitleColor
-           yModifier:(CGFloat)yModifier
-            xPadding:(CGFloat)xPadding {
-    // Draw
++ (NSMutableAttributedString *)m4_attributedStringWithString:(NSString *)string
+                                            tag:(NSString *)tag
+                                            tagHeight:(CGFloat)tagHeight
+                                              tagFont:(UIFont *)tagFont
+                                   tagBackgroundColor:(UIColor *)tagBackgroundColor
+                                        tagTitleColor:(UIColor *)tagTitleColor
+                                          tailPadding:(CGFloat)tailPadding
+                                            yModifier:(CGFloat)yModifier {
+    // [Guard]
+    if (!string || [string length] == 0) {
+        NSLog(@"【m4】string为空无操作  %s", __func__);
+        return nil;
+    }
+    if (!tag || [tag length] == 0) {
+        NSLog(@"【m4】tag为空无操作  %s", __func__);
+        return nil;
+    }
+    if (tagHeight <= 0) {
+        NSLog(@"【m4】tagHeight<=0无操作  %s", __func__);
+        return nil;
+    }
+    if (!tagFont) {
+        NSLog(@"【m4】tagFont为nil无操作  %s", __func__);
+        return nil;
+    }
+    if (!tagBackgroundColor) {
+        NSLog(@"【m4】tagBackgroundColor为nil无操作  %s", __func__);
+        return nil;
+    }
+    if (!tagTitleColor) {
+        NSLog(@"【m4】tagTitleColor为nil无操作  %s", __func__);
+        return nil;
+    }
+    
+    // 绘制图片
     NSDictionary *attributes = @{NSFontAttributeName:tagFont,
                                  NSForegroundColorAttributeName:tagTitleColor
                                  };
@@ -24,10 +51,9 @@
                                       options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                    attributes:attributes
                                       context:nil];
-    //
     CGFloat cornerRadiusDouble = tagHeight;
     CGFloat tagWidth = ceil(bounds.size.width) + cornerRadiusDouble;
-    CGFloat width = tagWidth + xPadding;
+    CGFloat width = tagWidth + tailPadding;
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, tagHeight), NO, [UIScreen mainScreen].scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -38,8 +64,6 @@
     CGContextSetFillColorWithColor(context, tagBackgroundColor.CGColor);
     CGContextFillPath(context);
     
-    
-    
     CGRect frame = bounds;
     frame.origin.x = (tagWidth - bounds.size.width) / 2;
     frame.origin.y = (tagHeight - bounds.size.height) / 2;
@@ -47,23 +71,29 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    // Attachment
+    // 将图片添加为Attachment
     NSTextAttachment *attachment = [NSTextAttachment new];
     attachment.image = image;
     attachment.bounds = CGRectMake(0, -yModifier, width, tagHeight);
     
-    // Insert
-    [self insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
+    // 创建AttributedString
+    NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:string];
+    [attrText insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
+    
+    return attrText;
 }
 
-- (void)m4_sn_insertTag:(NSString *)tag
-              yModifier:(CGFloat)yModifier {
-    [self m4_insertTag:tag
++ (NSMutableAttributedString *)m7_custom_attributedStringWithString:(NSString *)string
+                                                                tag:(NSString *)tag
+                                                          yModifier:(CGFloat)yModifier {
+    return [self m4_attributedStringWithString:string
+                                           tag:tag
              tagHeight:20
                tagFont:[UIFont systemFontOfSize:12]
     tagBackgroundColor:[UIColor blueColor]
          tagTitleColor:[UIColor whiteColor]
-             yModifier:4
-              xPadding:10];
+           tailPadding:10
+             yModifier:yModifier];
 }
+
 @end
