@@ -10,4 +10,4 @@
 	- ![](_readme_images/m4tag.png)
 - 计算NSAttributedString的行高（不修正行间距，也没有其他操作，只是根据现状计算）
 - 计算NSAttributedString的行数
-- 
+- 高亮NSMutableAttributedString中的关键字

@@ -10,6 +10,7 @@
 #import "NSMutableAttributedString+M4Linespace.h"
 #import "NSMutableAttributedString+M4Tag.h"
 #import "NSAttributedString+M2Size.h"
+#import "NSMutableAttributedString+M2Highlight.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelA;
@@ -96,6 +97,8 @@
     NSRange tagRange = NSMakeRange(0, [tagAttrText.string length]);
     [tagAttrText addAttribute:NSParagraphStyleAttributeName value:tagPara range:tagRange];
     [tagAttrText addAttribute:NSFontAttributeName value:font range:tagRange];
+    // 高亮关键字
+    [tagAttrText m2_highlightKeyword:@"p" color:[UIColor blueColor]];
     self.labelB.attributedText = [tagAttrText mutableCopy];
 //    NSLog(@"【chenms】self.labelB.attributedText:%@  %s", self.labelB.attributedText, __func__);
     CGFloat tagHeight = [self.labelB.attributedText m2_heightWithMaxWidth:maxWidth
