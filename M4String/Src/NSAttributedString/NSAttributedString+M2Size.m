@@ -23,7 +23,7 @@ static NSString * const kOneLineText = @"中p"; // 应该是什么都行
                  maxLineCount:(NSInteger)maxLineCount {
     // [Guard]
     UIFont *font = [self attribute:NSFontAttributeName
-                           atIndex:8
+                           atIndex:0
                     effectiveRange:nil];
     if (!font) {
         NSLog(@"【m2】本对象的NSFontAttributeName属性不能为空  %s", __func__);
@@ -64,7 +64,7 @@ static NSString * const kOneLineText = @"中p"; // 应该是什么都行
                          maxLineCount:(NSInteger)maxLineCount {
     // [Guard]
     UIFont *font = [self attribute:NSFontAttributeName
-                           atIndex:8
+                           atIndex:0
                     effectiveRange:nil];
     if (!font) {
         NSLog(@"【m2】本对象的NSFontAttributeName属性不能为空  %s", __func__);
