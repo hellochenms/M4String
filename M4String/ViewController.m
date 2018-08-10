@@ -23,6 +23,9 @@
     UIFont *font = [UIFont systemFontOfSize:20];
     NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine;
     
+    
+    // M4Linespace
+    NSLog(@"【chenms】M4Linespace----------  %s", __func__);
     // 单行
     NSString *oneLineText = @"中p";
     NSMutableAttributedString *oneLineAttrText = [[NSMutableAttributedString alloc] initWithString:oneLineText];
@@ -62,6 +65,8 @@
                         outputHeight:&moreLineModifyHeight
         outputIsMoreThanMaxLineCount:nil];
     NSLog(@"【chenms】moreLineModifyHeight:%.2f  %s", moreLineModifyHeight, __func__);
+    
+    //
 }
 
 
